@@ -21,7 +21,7 @@ impl Solution {
                     break;
                 }
             }
-             
+
             res.push(iter.by_ref().take(len).collect());
         }
 

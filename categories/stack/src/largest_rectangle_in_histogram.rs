@@ -2,11 +2,12 @@ pub struct Solution;
 
 impl Solution {
     pub fn largest_rectangle_area(heights: Vec<i32>) -> i32 {
+        use std::iter::once;
         let mut res = 0;
-        let len = heights.len();
 
         heights
             .iter()
+            .chain(once(&0))
             .enumerate()
             .fold(vec![], |mut stack, (i, height)| {
                 let mut start = i;
@@ -18,10 +19,6 @@ impl Solution {
                 }
                 stack.push((start, *height));
                 stack
-            })
-            .iter()
-            .for_each(|(idx, h)| {
-                res = res.max(h * (len - idx) as i32);
             });
 
         res

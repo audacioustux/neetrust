@@ -2,14 +2,14 @@ pub struct Solution;
 
 impl Solution {
     pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
-        use std::cmp::Ordering;
+        use std::cmp::Ordering::*;
         let mut i = 1;
         let mut j = numbers.len();
         while i < j {
             match (numbers[i - 1] + numbers[j - 1]).cmp(&target) {
-                Ordering::Less => i += 1,
-                Ordering::Equal => return vec![i as i32, j as i32],
-                Ordering::Greater => j -= 1,
+                Less => i += 1,
+                Equal => return vec![i as i32, j as i32],
+                Greater => j -= 1,
             }
         }
         vec![]

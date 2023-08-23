@@ -2,7 +2,7 @@ pub struct Solution;
 
 impl Solution {
     pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        use std::{cmp::Ordering, collections::HashSet};
+        use std::{cmp::Ordering::*, collections::HashSet};
         let mut res = HashSet::new();
         let mut nums = nums;
         nums.sort_unstable();
@@ -16,13 +16,13 @@ impl Solution {
                 let sum = nums[left] + nums[right];
 
                 match sum.cmp(&target) {
-                    Ordering::Less => left += 1,
-                    Ordering::Equal => {
+                    Less => left += 1,
+                    Equal => {
                         res.insert(vec![*num, nums[left], nums[right]]);
                         left += 1;
                         right -= 1;
                     }
-                    Ordering::Greater => right -= 1,
+                    Greater => right -= 1,
                 }
             }
         }

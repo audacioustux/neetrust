@@ -4,7 +4,7 @@ impl Solution {
     pub fn car_fleet(target: i32, position: Vec<i32>, speed: Vec<i32>) -> i32 {
         let mut cars: Vec<(i32, f64)> = position
             .into_iter()
-            .zip(speed.into_iter())
+            .zip(speed)
             .map(|(p, s)| (p, (target - p) as f64 / s as f64))
             .collect();
         cars.sort_by(|(p1, _), (p2, _)| p2.cmp(p1));

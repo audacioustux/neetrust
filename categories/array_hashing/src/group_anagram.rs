@@ -7,9 +7,9 @@ impl Solution {
         for s in strs {
             let mut chars: Vec<char> = s.chars().collect();
             chars.sort();
-            map.entry(chars).or_insert(vec![]).push(s);
+            map.entry(chars).or_default().push(s);
         }
-        map.values().map(|v| v.clone()).collect()
+        map.values().cloned().collect()
     }
 }
 

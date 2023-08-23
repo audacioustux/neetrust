@@ -11,7 +11,7 @@ impl Solution {
             .enumerate()
             .fold(vec![], |mut stack, (i, height)| {
                 let mut start = i;
-                while let Some(_) = stack.last().filter(|(_, h)| h > height) {
+                while stack.last().filter(|(_, h)| h > height).is_some() {
                     if let Some((idx, h)) = stack.pop() {
                         res = res.max(h * (i - idx) as i32);
                         start = idx;

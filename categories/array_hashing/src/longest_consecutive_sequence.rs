@@ -3,7 +3,7 @@ pub struct Solution;
 impl Solution {
     pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
         use std::collections::HashSet;
-        let nums: HashSet<i32> = HashSet::from_iter(nums.into_iter());
+        let nums: HashSet<i32> = HashSet::from_iter(nums);
 
         let mut res = 0;
         for num in &nums {

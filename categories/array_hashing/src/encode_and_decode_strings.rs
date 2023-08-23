@@ -15,7 +15,7 @@ impl Solution {
 
         while let Some(c) = iter.next() {
             let mut len: usize = 0;
-            while c.is_digit(10) {
+            while c.is_ascii_digit() {
                 len = len * 10 + c.to_digit(10).unwrap() as usize;
                 if let Some('#') = iter.next() {
                     break;

@@ -3,6 +3,12 @@ pub struct MinStack {
     min_stack: Vec<i32>,
 }
 
+impl Default for MinStack {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl MinStack {
     pub fn new() -> Self {
         MinStack {

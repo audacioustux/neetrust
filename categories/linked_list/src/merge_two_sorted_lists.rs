@@ -1,15 +1,4 @@
-#[derive(Debug, PartialEq, Eq)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-
-impl ListNode {
-    #[inline]
-    pub fn new(val: i32) -> Self {
-        ListNode { val, next: None }
-    }
-}
+use crate::ListNode;
 
 pub struct Solution;
 
@@ -35,28 +24,16 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_merge_two_lists() {
-    assert_eq!(
-        Solution::merge_two_lists(
-            Some(Box::new(ListNode {
-                val: 1,
-                next: Some(Box::new(ListNode::new(2)))
-            })),
-            Some(Box::new(ListNode {
-                val: 1,
-                next: Some(Box::new(ListNode::new(3)))
-            }))
-        ),
-        Some(Box::new(ListNode {
-            val: 1,
-            next: Some(Box::new(ListNode {
-                val: 1,
-                next: Some(Box::new(ListNode {
-                    val: 2,
-                    next: Some(Box::new(ListNode::new(3)))
-                }))
-            }))
-        }))
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::text_to_list_node;
+
+    #[test]
+    fn test_merge_two_lists() {
+        assert_eq!(
+            Solution::merge_two_lists(text_to_list_node("1 > 2"), text_to_list_node("1 > 3")),
+            text_to_list_node("1 > 1 > 2 > 3")
+        );
+    }
 }

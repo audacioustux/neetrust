@@ -1,14 +1,5 @@
-#[derive(Debug, PartialEq, Eq)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-impl ListNode {
-    #[inline]
-    pub fn new(val: i32) -> Self {
-        ListNode { val, next: None }
-    }
-}
+use crate::ListNode;
+
 pub struct Solution;
 
 impl Solution {
@@ -24,16 +15,19 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_reverse_list() {
-    assert_eq!(
-        Solution::reverse_list(Some(Box::new(ListNode {
-            val: 1,
-            next: Some(Box::new(ListNode::new(2)))
-        }))),
-        Some(Box::new(ListNode {
-            val: 2,
-            next: Some(Box::new(ListNode::new(1)))
-        }))
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::text_to_list_node;
+
+    #[test]
+    fn test_reverse_list() {
+        assert_eq!(
+            Solution::reverse_list(text_to_list_node("1 > 2")),
+            Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode::new(1)))
+            }))
+        );
+    }
 }

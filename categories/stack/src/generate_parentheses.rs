@@ -23,16 +23,21 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_generate_parenthesis() {
-    assert_eq!(
-        Solution::generate_parenthesis(3),
-        vec![
-            "((()))".to_string(),
-            "(()())".to_string(),
-            "(())()".to_string(),
-            "()(())".to_string(),
-            "()()()".to_string()
-        ]
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_generate_parenthesis() {
+        assert_eq!(
+            Solution::generate_parenthesis(3),
+            vec![
+                "((()))".to_string(),
+                "(()())".to_string(),
+                "(())()".to_string(),
+                "()(())".to_string(),
+                "()()()".to_string()
+            ]
+        );
+    }
 }

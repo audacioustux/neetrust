@@ -33,13 +33,17 @@ impl TimeMap {
     }
 }
 
-#[test]
-fn test_time_map() {
-    let mut time_map = TimeMap::new();
-    time_map.set("foo".to_string(), "bar".to_string(), 1);
-    assert_eq!(time_map.get("foo".to_string(), 1), "bar".to_string());
-    assert_eq!(time_map.get("foo".to_string(), 3), "bar".to_string());
-    time_map.set("foo".to_string(), "bar2".to_string(), 4);
-    assert_eq!(time_map.get("foo".to_string(), 4), "bar2".to_string());
-    assert_eq!(time_map.get("foo".to_string(), 5), "bar2".to_string());
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_time_map() {
+        let mut time_map = TimeMap::new();
+        time_map.set("foo".to_string(), "bar".to_string(), 1);
+        assert_eq!(time_map.get("foo".to_string(), 1), "bar".to_string());
+        assert_eq!(time_map.get("foo".to_string(), 3), "bar".to_string());
+        time_map.set("foo".to_string(), "bar2".to_string(), 4);
+        assert_eq!(time_map.get("foo".to_string(), 4), "bar2".to_string());
+        assert_eq!(time_map.get("foo".to_string(), 5), "bar2".to_string());
+    }
 }

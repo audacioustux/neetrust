@@ -19,11 +19,15 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_longest_consecutive() {
-    assert_eq!(Solution::longest_consecutive(vec![100, 4, 200, 1, 3, 2]), 4);
-    assert_eq!(
-        Solution::longest_consecutive(vec![0, 3, 7, 2, 5, 8, 4, 6, 0, 1]),
-        9
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_longest_consecutive() {
+        assert_eq!(Solution::longest_consecutive(vec![100, 4, 200, 1, 3, 2]), 4);
+        assert_eq!(
+            Solution::longest_consecutive(vec![0, 3, 7, 2, 5, 8, 4, 6, 0, 1]),
+            9
+        );
+    }
 }

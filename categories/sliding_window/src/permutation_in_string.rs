@@ -29,18 +29,22 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_check_inclusion() {
-    assert_eq!(
-        Solution::check_inclusion("ab".to_string(), "eidbaooo".to_string()),
-        true
-    );
-    assert_eq!(
-        Solution::check_inclusion("ab".to_string(), "eidboaoo".to_string()),
-        false
-    );
-    assert_eq!(
-        Solution::check_inclusion("ab".to_string(), "a".to_string()),
-        false
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_check_inclusion() {
+        assert_eq!(
+            Solution::check_inclusion("ab".to_string(), "eidbaooo".to_string()),
+            true
+        );
+        assert_eq!(
+            Solution::check_inclusion("ab".to_string(), "eidboaoo".to_string()),
+            false
+        );
+        assert_eq!(
+            Solution::check_inclusion("ab".to_string(), "a".to_string()),
+            false
+        );
+    }
 }

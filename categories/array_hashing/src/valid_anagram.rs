@@ -10,14 +10,18 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_is_anagram() {
-    assert_eq!(
-        Solution::is_anagram("anagram".to_string(), "nagaram".to_string()),
-        true
-    );
-    assert_eq!(
-        Solution::is_anagram("rat".to_string(), "car".to_string()),
-        false
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_is_anagram() {
+        assert_eq!(
+            Solution::is_anagram("anagram".to_string(), "nagaram".to_string()),
+            true
+        );
+        assert_eq!(
+            Solution::is_anagram("rat".to_string(), "car".to_string()),
+            false
+        );
+    }
 }

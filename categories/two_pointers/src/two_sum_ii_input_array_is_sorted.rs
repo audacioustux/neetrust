@@ -16,9 +16,13 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_two_sum() {
-    assert_eq!(Solution::two_sum(vec![2, 7, 11, 15], 9), vec![1, 2]);
-    assert_eq!(Solution::two_sum(vec![2, 3, 4], 6), vec![1, 3]);
-    assert_eq!(Solution::two_sum(vec![-1, 0], -1), vec![1, 2]);
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_two_sum() {
+        assert_eq!(Solution::two_sum(vec![2, 7, 11, 15], 9), vec![1, 2]);
+        assert_eq!(Solution::two_sum(vec![2, 3, 4], 6), vec![1, 3]);
+        assert_eq!(Solution::two_sum(vec![-1, 0], -1), vec![1, 2]);
+    }
 }

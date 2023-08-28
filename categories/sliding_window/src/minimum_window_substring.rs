@@ -37,26 +37,30 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_min_window() {
-    assert_eq!(
-        Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()),
-        "BANC".to_string()
-    );
-    assert_eq!(
-        Solution::min_window("a".to_string(), "a".to_string()),
-        "a".to_string()
-    );
-    assert_eq!(
-        Solution::min_window("a".to_string(), "aa".to_string()),
-        "".to_string()
-    );
-    assert_eq!(
-        Solution::min_window("ab".to_string(), "a".to_string()),
-        "a".to_string()
-    );
-    assert_eq!(
-        Solution::min_window("a".to_string(), "b".to_string()),
-        "".to_string()
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_min_window() {
+        assert_eq!(
+            Solution::min_window("ADOBECODEBANC".to_string(), "ABC".to_string()),
+            "BANC".to_string()
+        );
+        assert_eq!(
+            Solution::min_window("a".to_string(), "a".to_string()),
+            "a".to_string()
+        );
+        assert_eq!(
+            Solution::min_window("a".to_string(), "aa".to_string()),
+            "".to_string()
+        );
+        assert_eq!(
+            Solution::min_window("ab".to_string(), "a".to_string()),
+            "a".to_string()
+        );
+        assert_eq!(
+            Solution::min_window("a".to_string(), "b".to_string()),
+            "".to_string()
+        );
+    }
 }

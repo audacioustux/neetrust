@@ -12,27 +12,31 @@ impl Solution {
         map.values().cloned().collect()
     }
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-#[test]
-fn test_group_anagrams() {
-    let mut result = Solution::group_anagrams(vec![
-        "eat".to_string(),
-        "tea".to_string(),
-        "tan".to_string(),
-        "ate".to_string(),
-        "nat".to_string(),
-        "bat".to_string(),
-    ]);
-    let mut expected: Vec<Vec<String>> = vec![
-        vec!["ate".to_string(), "eat".to_string(), "tea".to_string()],
-        vec!["nat".to_string(), "tan".to_string()],
-        vec!["bat".to_string()],
-    ];
+    #[test]
+    fn test_group_anagrams() {
+        let mut result = Solution::group_anagrams(vec![
+            "eat".to_string(),
+            "tea".to_string(),
+            "tan".to_string(),
+            "ate".to_string(),
+            "nat".to_string(),
+            "bat".to_string(),
+        ]);
+        let mut expected: Vec<Vec<String>> = vec![
+            vec!["ate".to_string(), "eat".to_string(), "tea".to_string()],
+            vec!["nat".to_string(), "tan".to_string()],
+            vec!["bat".to_string()],
+        ];
 
-    result.iter_mut().for_each(|v| v.sort());
-    expected.iter_mut().for_each(|v| v.sort());
-    result.sort();
-    expected.sort();
+        result.iter_mut().for_each(|v| v.sort());
+        expected.iter_mut().for_each(|v| v.sort());
+        result.sort();
+        expected.sort();
 
-    assert_eq!(result, expected);
+        assert_eq!(result, expected);
+    }
 }

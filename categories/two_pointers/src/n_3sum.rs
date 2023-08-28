@@ -30,15 +30,19 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_three_sum() {
-    fn is_triplet(nums: &[i32]) -> bool {
-        nums.len() == 3 && nums[0] + nums[1] + nums[2] == 0
-    }
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_three_sum() {
+        fn is_triplet(nums: &[i32]) -> bool {
+            nums.len() == 3 && nums[0] + nums[1] + nums[2] == 0
+        }
 
-    Solution::three_sum(vec![-1, 0, 1, 2, -1, -4])
-        .iter()
-        .for_each(|nums| {
-            assert!(is_triplet(nums));
-        });
+        Solution::three_sum(vec![-1, 0, 1, 2, -1, -4])
+            .iter()
+            .for_each(|nums| {
+                assert!(is_triplet(nums));
+            });
+    }
 }

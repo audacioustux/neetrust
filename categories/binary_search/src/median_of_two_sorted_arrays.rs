@@ -33,14 +33,18 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_find_median_sorted_arrays() {
-    assert_eq!(
-        Solution::find_median_sorted_arrays(vec![1, 3], vec![2]),
-        2.0
-    );
-    assert_eq!(
-        Solution::find_median_sorted_arrays(vec![1, 2], vec![3, 4]),
-        2.5
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_find_median_sorted_arrays() {
+        assert_eq!(
+            Solution::find_median_sorted_arrays(vec![1, 3], vec![2]),
+            2.0
+        );
+        assert_eq!(
+            Solution::find_median_sorted_arrays(vec![1, 2], vec![3, 4]),
+            2.5
+        );
+    }
 }

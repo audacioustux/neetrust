@@ -13,27 +13,31 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_search_matrix() {
-    assert_eq!(
-        Solution::search_matrix(
-            vec![vec![1, 3, 5, 7], vec![10, 11, 16, 20], vec![23, 30, 34, 50]],
-            3
-        ),
-        true
-    );
-    assert_eq!(
-        Solution::search_matrix(
-            vec![vec![1, 3, 5, 7], vec![10, 11, 16, 20], vec![23, 30, 34, 50]],
-            34
-        ),
-        true
-    );
-    assert_eq!(
-        Solution::search_matrix(
-            vec![vec![1, 3, 5, 7], vec![10, 11, 16, 20], vec![23, 30, 34, 50]],
-            13
-        ),
-        false
-    );
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_search_matrix() {
+        assert_eq!(
+            Solution::search_matrix(
+                vec![vec![1, 3, 5, 7], vec![10, 11, 16, 20], vec![23, 30, 34, 50]],
+                3
+            ),
+            true
+        );
+        assert_eq!(
+            Solution::search_matrix(
+                vec![vec![1, 3, 5, 7], vec![10, 11, 16, 20], vec![23, 30, 34, 50]],
+                34
+            ),
+            true
+        );
+        assert_eq!(
+            Solution::search_matrix(
+                vec![vec![1, 3, 5, 7], vec![10, 11, 16, 20], vec![23, 30, 34, 50]],
+                13
+            ),
+            false
+        );
+    }
 }

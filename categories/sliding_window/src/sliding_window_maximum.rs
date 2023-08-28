@@ -25,7 +25,7 @@ impl Solution {
             let window_size = right - left + 1;
             // if window is full
             if window_size == k {
-                res.push(nums[deque.front().unwrap().clone()]); // max is the first
+                res.push(nums[*deque.front().unwrap()]); // max is the first
                 left += 1; // move left cursor to right
             }
         }
@@ -33,11 +33,16 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_max_sliding_window() {
-    assert_eq!(
-        Solution::max_sliding_window(vec![1, 3, -1, -3, 5, 3, 6, 7], 3),
-        vec![3, 3, 5, 5, 6, 7]
-    );
-    assert_eq!(Solution::max_sliding_window(vec![1, -1], 1), vec![1, -1]);
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_max_sliding_window() {
+        assert_eq!(
+            Solution::max_sliding_window(vec![1, 3, -1, -3, 5, 3, 6, 7], 3),
+            vec![3, 3, 5, 5, 6, 7]
+        );
+        assert_eq!(Solution::max_sliding_window(vec![1, -1], 1), vec![1, -1]);
+    }
 }

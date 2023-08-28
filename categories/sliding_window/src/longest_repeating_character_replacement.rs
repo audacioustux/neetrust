@@ -19,8 +19,12 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_character_replacement() {
-    assert_eq!(Solution::character_replacement("ABAB".to_string(), 2), 4);
-    assert_eq!(Solution::character_replacement("AABABBA".to_string(), 1), 4);
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_character_replacement() {
+        assert_eq!(Solution::character_replacement("ABAB".to_string(), 2), 4);
+        assert_eq!(Solution::character_replacement("AABABBA".to_string(), 1), 4);
+    }
 }

@@ -14,6 +14,7 @@ impl Solution {
             tail = &mut tail.as_mut().unwrap().next.as_mut().unwrap().next;
         }
     }
+
     fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut head = head;
         let mut prev = None;
@@ -24,10 +25,11 @@ impl Solution {
         }
         prev
     }
+
     fn get_middle_node(head: &mut Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let (mut fast, mut slow) = (&head.clone(), head);
         while fast.is_some() {
-            fast = &(fast.as_ref().unwrap().next);
+            fast = &fast.as_ref().unwrap().next;
             if fast.is_some() {
                 fast = &fast.as_ref().unwrap().next;
                 slow = &mut (slow.as_mut().unwrap().next);

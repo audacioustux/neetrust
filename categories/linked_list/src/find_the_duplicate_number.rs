@@ -1,6 +1,26 @@
 pub struct Solution;
 
 impl Solution {
+    // floyd's tortoise and hare (cycle detection)
+    // fast pointer moves twice as fast as slow pointer
+    // so fast pointer will meet slow pointer in a cycle
+    // assume.
+    //      length of cycle = C
+    //      start of list ~ start of cycle = P
+    //      start of intersection ~ start of cycle = Q
+    //      start of cycle ~ intersection = C - Q
+    // 2 * slow = fast
+    // 2 * (P + C - Q) = P + C + C - Q
+    // 2P + 2C - 2Q = P + 2C - Q
+    // P = Q
+    //
+    // [1,2,3,4,5,1]
+    //
+    // [0] -> [1] -> [2] -> [3]
+    //     p   ^             |
+    //         | q           |
+    //         ------[5] <- [4]
+    //
     pub fn find_duplicate(nums: Vec<i32>) -> i32 {
         let mut slow = nums[0];
         let mut fast = nums[0];
